@@ -2,7 +2,7 @@ import { Button, Container, Flex } from "@radix-ui/themes"
 import { getAuth, signInWithPopup } from "firebase/auth"
 import { useCallback } from "react"
 import { FaGoogle } from "react-icons/fa"
-import { googleAuthProvider, notyf } from "../utils"
+import { UserMetadata, googleAuthProvider, notyf } from "../utils"
 import to from "await-to-js"
 import { getDatabase, ref, set } from "firebase/database"
 
@@ -19,11 +19,19 @@ const Login = () => {
 		}
 		const { user } = userCredential
 		const db = getDatabase()
+
+		if (user.displayName === null) {
+			console.error("user.displayName is null")
+			notyf.error("Your Google account doesn't have a display name")
+			return
+		}
+
+		const userMetadata: UserMetadata = {
+			username: user.displayName,
+			photoURL: user.photoURL,
+		}
 		const [errSetUserMetadata] = await to(
-			set(ref(db, `usersMetadata/${user.uid}`), {
-				username: user.displayName,
-				photoUrl: user.photoURL,
-			}),
+			set(ref(db, `usersMetadata/${user.uid}`), userMetadata),
 		)
 		if (errSetUserMetadata) {
 			console.error(errSetUserMetadata)
