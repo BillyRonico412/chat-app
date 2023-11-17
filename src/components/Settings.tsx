@@ -1,4 +1,3 @@
-import { Button } from "@radix-ui/themes"
 import to from "await-to-js"
 import { getAuth } from "firebase/auth"
 import { useCallback } from "react"
@@ -17,10 +16,10 @@ const Settings = () => {
 		notyf.success("Disconnected")
 	}, [])
 	return (
-		<div className="py-8">
-			<Button size="2" onClick={onClickDisconnect}>
+		<div>
+			<button onClick={onClickDisconnect} className="w-full">
 				Disconnect <FaSignOutAlt />
-			</Button>
+			</button>
 		</div>
 	)
 }

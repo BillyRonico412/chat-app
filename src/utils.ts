@@ -12,6 +12,6 @@ export const zodUserMetadata = z.object({
 	photoURL: z.string().nullable(),
 })
 
-export type UserMetadata = z.infer<typeof zodUserMetadata>
+export type UserMetadataType = z.infer<typeof zodUserMetadata>
 
-export const usersMetadataAtom = atom<Record<string, UserMetadata>>({})
+export const usersMetadataAtom = atom<Record<string, UserMetadataType>>({})

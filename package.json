@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@radix-ui/themes": "^2.0.1",
     "await-to-js": "^3.0.0",
     "firebase": "^10.6.0",
     "jotai": "^2.5.1",

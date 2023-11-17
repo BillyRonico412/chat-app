@@ -1,11 +1,9 @@
+import { FirebaseOptions, initializeApp } from "firebase/app"
+import "notyf/notyf.min.css"
 import React from "react"
 import ReactDOM from "react-dom/client"
 import App from "./App.tsx"
-import { FirebaseOptions, initializeApp } from "firebase/app"
-import { Theme } from "@radix-ui/themes"
-import "notyf/notyf.min.css"
 import "./index.css"
-import "@radix-ui/themes/styles.css"
 
 const firebaseConfig: FirebaseOptions = {
 	apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -22,8 +20,6 @@ initializeApp(firebaseConfig)
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
-		<Theme>
-			<App />
-		</Theme>
+		<App />
 	</React.StrictMode>,
 )

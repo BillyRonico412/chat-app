@@ -1,8 +1,7 @@
-import { Button, Container, Flex } from "@radix-ui/themes"
 import { getAuth, signInWithPopup } from "firebase/auth"
 import { useCallback } from "react"
 import { FaGoogle } from "react-icons/fa"
-import { UserMetadata, googleAuthProvider, notyf } from "../utils"
+import { UserMetadataType, googleAuthProvider, notyf } from "../utils"
 import to from "await-to-js"
 import { getDatabase, ref, set } from "firebase/database"
 
@@ -26,7 +25,7 @@ const Login = () => {
 			return
 		}
 
-		const userMetadata: UserMetadata = {
+		const userMetadata: UserMetadataType = {
 			username: user.displayName,
 			photoURL: user.photoURL,
 		}
@@ -41,13 +40,13 @@ const Login = () => {
 		notyf.success("Connected")
 	}, [])
 	return (
-		<Container>
-			<Flex align="center" justify="center" className="h-screen">
-				<Button size="4" onClick={onClickConnect}>
+		<div className="container">
+			<div className="flex justify-center items-center h-screen">
+				<button onClick={onClickConnect}>
 					Connect to Google <FaGoogle />
-				</Button>
-			</Flex>
-		</Container>
+				</button>
+			</div>
+		</div>
 	)
 }
 
