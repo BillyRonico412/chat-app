@@ -14,6 +14,7 @@ const UserPhoto = (props: UserPhotoProps) => {
 	}
 	return (
 		<img
+			referrerPolicy="no-referrer"
 			src={props.userMetadata.photoURL}
 			alt={props.userMetadata.username}
 			className="w-10 h-10 rounded-full"

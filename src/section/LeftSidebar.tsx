@@ -3,7 +3,7 @@ import HeaderWithBack from "../components/HeaderWithBack"
 import { leftHeaderNavItemCurrentAtom } from "../utils"
 import LeftHeader from "./LeftSidebar/LeftHeader"
 import MessageList from "./LeftSidebar/MessageList"
-import UserList from "./UserList"
+import UserList from "./LeftSidebar/UserList"
 
 const LeftSidebar = () => {
 	const leftHeaderNavItemCurrent = useAtomValue(leftHeaderNavItemCurrentAtom)

@@ -1,9 +1,9 @@
 import { getDatabase, onValue, ref } from "firebase/database"
 import { useAtom } from "jotai"
 import { useEffect } from "react"
-import { notyf, usersMetadataAtom, zodUserMetadata } from "../utils"
+import { notyf, usersMetadataAtom, zodUserMetadata } from "../../utils"
 import { z } from "zod"
-import UserMetadata from "../components/UserMetadata"
+import UserMetadata from "../../components/UserMetadata"
 
 const UserList = () => {
 	const [usersMetadata, setUsersMetadata] = useAtom(usersMetadataAtom)
@@ -31,9 +31,11 @@ const UserList = () => {
 		})
 	}, [setUsersMetadata])
 	return (
-		<div className="flex flex-col gap-y-2 px-4 py-4">
+		<div className="flex flex-col px-4 py-4 divide-y">
 			{Object.entries(usersMetadata).map(([uid, userMetadata]) => (
-				<UserMetadata key={uid} userMetadata={userMetadata} />
+				<div className="py-2">
+					<UserMetadata key={uid} userMetadata={userMetadata} />
+				</div>
 			))}
 		</div>
 	)

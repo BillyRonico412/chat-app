@@ -1,11 +1,14 @@
+import to from "await-to-js"
+import { getAuth } from "firebase/auth"
 import { useAtomValue, useSetAtom } from "jotai"
-import { useMemo } from "react"
+import { useCallback, useMemo } from "react"
 import { LuLogOut, LuMessageSquarePlus } from "react-icons/lu"
 import NavItem from "../../components/NavItem"
 import UserPhoto from "../../components/UserPhoto"
 import {
 	UserMetadataType,
 	leftHeaderNavItemCurrentAtom,
+	notyf,
 	userAtom,
 } from "../../utils"
 
@@ -22,6 +25,17 @@ const LeftHeader = () => {
 		}
 	}, [user])
 
+	const onClickDisconnect = useCallback(async () => {
+		const auth = getAuth()
+		const [err] = await to(auth.signOut())
+		if (err) {
+			console.error(err)
+			notyf.error("Error while disconnecting")
+			return
+		}
+		notyf.success("Disconnected")
+	}, [])
+
 	if (!userMetadata) {
 		return <></>
 	}
@@ -34,7 +48,11 @@ const LeftHeader = () => {
 					title="New message"
 					onClick={() => setLeftHeaderNavItemCurrent("new-message")}
 				/>
-				<NavItem icon={<LuLogOut />} title="Log out" />
+				<NavItem
+					icon={<LuLogOut />}
+					title="Log out"
+					onClick={onClickDisconnect}
+				/>
 			</div>
 		</nav>
 	)
