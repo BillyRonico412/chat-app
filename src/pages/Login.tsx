@@ -40,9 +40,12 @@ const Login = () => {
 		notyf.success("Connected")
 	}, [])
 	return (
-		<div className="container">
+		<div className="container mx-auto">
 			<div className="flex justify-center items-center h-screen">
-				<button onClick={onClickConnect}>
+				<button
+					onClick={onClickConnect}
+					className="bg-blue-600 rounded text-white flex justify-center items-center gap-x-4 px-8 py-4 text-xl font-semibold"
+				>
 					Connect to Google <FaGoogle />
 				</button>
 			</div>

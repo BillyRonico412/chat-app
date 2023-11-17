@@ -3,7 +3,7 @@ import { useAtom } from "jotai"
 import { useEffect } from "react"
 import { notyf, usersMetadataAtom, zodUserMetadata } from "../utils"
 import { z } from "zod"
-import UserMetadata from "./UserMetadata"
+import UserMetadata from "../components/UserMetadata"
 
 const UserList = () => {
 	const [usersMetadata, setUsersMetadata] = useAtom(usersMetadataAtom)
@@ -31,13 +31,10 @@ const UserList = () => {
 		})
 	}, [setUsersMetadata])
 	return (
-		<div>
-			<p>User List</p>
-			<div className="flex flex-col gap-y-2">
-				{Object.entries(usersMetadata).map(([uid, userMetadata]) => (
-					<UserMetadata key={uid} userMetadata={userMetadata} />
-				))}
-			</div>
+		<div className="flex flex-col gap-y-2 px-4 py-4">
+			{Object.entries(usersMetadata).map(([uid, userMetadata]) => (
+				<UserMetadata key={uid} userMetadata={userMetadata} />
+			))}
 		</div>
 	)
 }

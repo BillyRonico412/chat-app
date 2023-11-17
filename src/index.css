@@ -6,4 +6,5 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  @apply text-gray-900;
 }

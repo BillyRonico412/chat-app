@@ -10,8 +10,9 @@ const UserMetadata = (props: UserProps) => {
 			<img
 				src={props.userMetadata.photoURL ?? ""}
 				alt={props.userMetadata.username}
+				className="w-10 h-10 rounded-full"
 			/>
-			<p>{props.userMetadata.username}</p>
+			<p className="text-sm font-medium">{props.userMetadata.username}</p>
 		</div>
 	)
 }

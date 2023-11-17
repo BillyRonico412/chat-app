@@ -15,3 +15,16 @@ export const zodUserMetadata = z.object({
 export type UserMetadataType = z.infer<typeof zodUserMetadata>
 
 export const usersMetadataAtom = atom<Record<string, UserMetadataType>>({})
+
+export type LeftHeaderNavItemType = "new-message"
+
+export const leftHeaderNavItemCurrentAtom = atom<LeftHeaderNavItemType | null>(
+	null,
+)
+
+export const zodMessage = z.object({
+	text: z.string(),
+	date: z.number(),
+})
+
+export type MessageType = z.infer<typeof zodMessage>

@@ -2,7 +2,7 @@ import to from "await-to-js"
 import { getAuth } from "firebase/auth"
 import { useCallback } from "react"
 import { FaSignOutAlt } from "react-icons/fa"
-import { notyf } from "../utils"
+import { notyf } from "../../utils"
 
 const Settings = () => {
 	const onClickDisconnect = useCallback(async () => {
