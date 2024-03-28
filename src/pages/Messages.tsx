@@ -1,3 +1,9 @@
+import { NewMessage } from "@/components/NewMessage"
+
 export const Messages = () => {
-	return <div>Messages</div>
+	return (
+		<div>
+			<NewMessage />
+		</div>
+	)
 }
