@@ -9,3 +9,12 @@ export const zodMessage = z.object({
 	text: z.string(),
 	date: z.number(),
 })
+
+export const zodTypeMessage = z.union([
+	z.literal("sent"),
+	z.literal("received"),
+])
+
+export const zodLastMessage = zodMessage.extend({
+	type: zodTypeMessage,
+})

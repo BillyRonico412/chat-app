@@ -2,7 +2,7 @@ import { InputMessage } from "@/components/InputMessage"
 import { MessageItem } from "@/components/MessageItem"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useReceivedUser } from "@/hooks"
-import { zodMessage } from "@/model"
+import { zodMessage, zodTypeMessage } from "@/model"
 import { userAtom } from "@/store"
 import { getDatabase, off, onChildAdded, ref } from "firebase/database"
 import { useAtomValue } from "jotai"
@@ -16,7 +16,7 @@ interface MessagesByUserProps {
 
 export type MessageItemType = z.infer<typeof zodMessage> & {
 	key: string
-	type: "sent" | "received"
+	type: z.infer<typeof zodTypeMessage>
 }
 
 export const MessagesByUser = (props: MessagesByUserProps) => {
