@@ -32,28 +32,23 @@ export const Header = () => {
 	}
 	return (
 		<nav className="flex items-center py-4 container">
-			<div className="text-2xl font-black title-1">
-				{receivedUser ? (
-					<div className="flex items-center gap-x-4">
-						<p className="text-lg font-bold">{receivedUser.userName}</p>
-						<Avatar>
-							<AvatarImage src={receivedUser.photoURL ?? ""} />
-							<AvatarFallback>{receivedUser.userName?.[0]}</AvatarFallback>
-						</Avatar>
-					</div>
-				) : (
-					"Chat App"
-				)}
-			</div>
-			<div className="ml-auto flex items-center gap-x-4">
-				<Button onClick={() => setLocation("/messages")}>
-					<MessagesSquare size={16} className="mr-2" />
-					List messages
+			{receivedUser ? (
+				<div className="flex items-center gap-x-4">
+					<Avatar>
+						<AvatarImage src={receivedUser.photoURL ?? ""} />
+						<AvatarFallback>{receivedUser.userName?.[0]}</AvatarFallback>
+					</Avatar>
+				</div>
+			) : (
+				<div className="text-lg font-black title-1">Chat App</div>
+			)}
+			<div className="ml-auto flex items-center gap-x-2">
+				<Button onClick={() => setLocation("/messages")} size="icon">
+					<MessagesSquare size={16} />
 				</Button>
 				<NewMessagePopover />
-				<Button onClick={onClickLogOut}>
-					<LogOut size={16} className="mr-2" />
-					Log out
+				<Button onClick={onClickLogOut} size="icon">
+					<LogOut size={16} />
 				</Button>
 				<ModeToggle />
 				<Avatar>

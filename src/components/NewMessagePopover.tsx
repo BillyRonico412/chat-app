@@ -24,9 +24,8 @@ export const NewMessagePopover = () => {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild={true}>
-				<Button>
-					<MessageCirclePlus size={16} className="mr-2" />
-					New message
+				<Button size="icon">
+					<MessageCirclePlus size={16} />
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent>
