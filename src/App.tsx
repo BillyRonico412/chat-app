@@ -24,7 +24,7 @@ export const App = () => {
 	}
 
 	return (
-		<div className="min-h-screen flex flex-col">
+		<div className="min-h-[100dvh] flex flex-col">
 			<div className="bg-muted">
 				<Header />
 			</div>
