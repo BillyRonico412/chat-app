@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client"
 import { App } from "./App.tsx"
 import { ThemeProvider } from "./components/ui/theme-provider.tsx"
 import "./index.css"
-import { Synchornizer } from "@/components/Synchornizer.tsx"
+import { Synchronizer } from "@/components/Synchronizer.tsx"
 
 const firebaseConfig: FirebaseOptions = {
 	apiKey: "AIzaSyDXU843EYCM4-lvHpMXKEElOJq06hwsbhM",
@@ -26,6 +26,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
 		<App />
 		<Toaster />
-		<Synchornizer />
+		<Synchronizer />
 	</ThemeProvider>,
 )

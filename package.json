@@ -21,6 +21,7 @@
     "await-to-js": "^3.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "dayjs": "^1.11.10",
     "firebase": "^10.9.0",
     "jotai": "^2.7.1",
     "lucide-react": "^0.363.0",

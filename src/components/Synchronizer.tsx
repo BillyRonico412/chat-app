@@ -2,13 +2,13 @@ import { zodUser } from "@/model"
 import { userAtom, usersAtom } from "@/store"
 import to from "await-to-js"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
-import { getDatabase, onValue, ref, set } from "firebase/database"
+import { getDatabase, off, onValue, ref, set } from "firebase/database"
 import { useAtom, useSetAtom } from "jotai"
 import { useEffect } from "react"
 import { toast } from "sonner"
 import { z } from "zod"
 
-export const Synchornizer = () => {
+export const Synchronizer = () => {
 	const [user, setUser] = useAtom(userAtom)
 	const setUsers = useSetAtom(usersAtom)
 	useEffect(() => {
@@ -51,8 +51,17 @@ export const Synchornizer = () => {
 				})
 				return
 			}
-			setUsers(usersSafeParsed.data)
+			const usersWithoutCurrentUser = Object.fromEntries(
+				Object.entries(usersSafeParsed.data).filter(
+					([uid]) => uid !== user.uid,
+				),
+			)
+			setUsers(usersWithoutCurrentUser)
 		})
+		return () => {
+			setUsers({})
+			off(usersRef)
+		}
 	}, [setUsers, user])
 
 	return <></>
