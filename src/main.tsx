@@ -1,11 +1,11 @@
 import { Toaster } from "@/components/ui/sonner"
 import { getAnalytics } from "firebase/analytics"
-import { type FirebaseOptions, initializeApp } from "firebase/app"
-import React from "react"
+import { initializeApp, type FirebaseOptions } from "firebase/app"
 import ReactDOM from "react-dom/client"
 import { App } from "./App.tsx"
-import "./index.css"
 import { ThemeProvider } from "./components/ui/theme-provider.tsx"
+import "./index.css"
+import { Synchornizer } from "@/components/Synchornizer.tsx"
 
 const firebaseConfig: FirebaseOptions = {
 	apiKey: "AIzaSyDXU843EYCM4-lvHpMXKEElOJq06hwsbhM",
@@ -24,9 +24,8 @@ getAnalytics(app)
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-		<React.StrictMode>
-			<App />
-			<Toaster />
-		</React.StrictMode>
+		<App />
+		<Toaster />
+		<Synchornizer />
 	</ThemeProvider>,
 )

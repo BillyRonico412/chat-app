@@ -3,7 +3,7 @@ import { getAuth, signInWithPopup } from "firebase/auth"
 import { useCallback } from "react"
 import { toast } from "sonner"
 import { Button } from "../components/ui/button"
-import { googleProvider } from "../utils"
+import { googleProvider } from "../store"
 
 export const Login = () => {
 	const onClick = useCallback(async () => {

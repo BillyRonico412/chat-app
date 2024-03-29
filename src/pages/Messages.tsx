@@ -1,9 +1,3 @@
-import { NewMessage } from "@/components/NewMessage"
-
 export const Messages = () => {
-	return (
-		<div>
-			<NewMessage />
-		</div>
-	)
+	return <div></div>
 }
