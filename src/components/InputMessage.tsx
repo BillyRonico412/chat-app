@@ -34,16 +34,14 @@ export const InputMessage = (props: InputMessageProps) => {
 			text: text,
 			date: Date.now(),
 		}
-    const newLastMessage1: z.infer<typeof zodLastMessage> = {
-      text: text,
-      date: Date.now(),
-      type: "sent",
-    }
-    const newLastMessage2: z.infer<typeof zodLastMessage> = {
-      text: text,
-      date: Date.now(),
-      type: "received",
-    }
+		const newLastMessage1: z.infer<typeof zodLastMessage> = {
+			...newMessage,
+			type: "sent",
+		}
+		const newLastMessage2: z.infer<typeof zodLastMessage> = {
+			...newMessage,
+			type: "received",
+		}
 		set(newMessageRef, newMessage)
 		set(lastMessageRef1, newLastMessage1)
 		set(lastMessageRef2, newLastMessage2)
